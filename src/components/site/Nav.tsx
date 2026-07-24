@@ -53,13 +53,6 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <Link
-              to="/apply"
-              className="btn-primary btn-primary-hover mt-2 text-sm"
-              onClick={() => setOpen(false)}
-            >
-              Join Us
-            </Link>
           </div>
         </div>
       )}
