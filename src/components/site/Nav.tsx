@@ -5,10 +5,8 @@ import { Menu, X } from "lucide-react";
 const links = [
   { to: "/about", label: "About" },
   { to: "/what-we-do", label: "What We Do" },
-  { to: "/team", label: "Team" },
   { to: "/events", label: "Events" },
   { to: "/partners", label: "Partners" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Nav() {
