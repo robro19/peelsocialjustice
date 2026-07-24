@@ -74,14 +74,20 @@ function Events() {
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {past.map((e) => (
             <article key={e.title} className="overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={e.img}
-                  alt={e.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
+              {e.img ? (
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={e.img}
+                    alt={e.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <div className="flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/15 p-6 text-center">
+                  <span className="font-display text-2xl text-primary">{e.title}</span>
+                </div>
+              )}
               <div className="p-6">
                 <h3 className="text-lg">{e.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
