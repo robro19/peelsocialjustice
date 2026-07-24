@@ -37,8 +37,8 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <a href="mailto:hello@peelsocialjustice.org" className="inline-flex items-center gap-2 hover:text-primary">
-                <Mail className="h-4 w-4" /> hello@peelsocialjustice.org
+              <a href="mailto:peelsocialjustice@gmail.com" className="inline-flex items-center gap-2 hover:text-primary">
+                <Mail className="h-4 w-4" /> peelsocialjustice@gmail.com
               </a>
             </li>
             <li><Link to="/apply" className="hover:text-primary">Apply / Join</Link></li>
