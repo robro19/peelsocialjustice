@@ -10,11 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
-import { Route as TeamRouteImport } from './routes/team'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as EventsRouteImport } from './routes/events'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
@@ -22,11 +20,6 @@ import { Route as IndexRouteImport } from './routes/index'
 const WhatWeDoRoute = WhatWeDoRouteImport.update({
   id: '/what-we-do',
   path: '/what-we-do',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const TeamRoute = TeamRouteImport.update({
-  id: '/team',
-  path: '/team',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -42,11 +35,6 @@ const PartnersRoute = PartnersRouteImport.update({
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApplyRoute = ApplyRouteImport.update({
@@ -69,22 +57,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
-  '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
-  '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesById {
@@ -92,11 +76,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
-  '/contact': typeof ContactRoute
   '/events': typeof EventsRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
-  '/team': typeof TeamRoute
   '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRouteTypes {
@@ -105,33 +87,27 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/apply'
-    | '/contact'
     | '/events'
     | '/partners'
     | '/sitemap.xml'
-    | '/team'
     | '/what-we-do'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/apply'
-    | '/contact'
     | '/events'
     | '/partners'
     | '/sitemap.xml'
-    | '/team'
     | '/what-we-do'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/apply'
-    | '/contact'
     | '/events'
     | '/partners'
     | '/sitemap.xml'
-    | '/team'
     | '/what-we-do'
   fileRoutesById: FileRoutesById
 }
@@ -139,11 +115,9 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ApplyRoute: typeof ApplyRoute
-  ContactRoute: typeof ContactRoute
   EventsRoute: typeof EventsRoute
   PartnersRoute: typeof PartnersRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
-  TeamRoute: typeof TeamRoute
   WhatWeDoRoute: typeof WhatWeDoRoute
 }
 
@@ -154,13 +128,6 @@ declare module '@tanstack/react-router' {
       path: '/what-we-do'
       fullPath: '/what-we-do'
       preLoaderRoute: typeof WhatWeDoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/team': {
-      id: '/team'
-      path: '/team'
-      fullPath: '/team'
-      preLoaderRoute: typeof TeamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -182,13 +149,6 @@ declare module '@tanstack/react-router' {
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/apply': {
@@ -219,11 +179,9 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ApplyRoute: ApplyRoute,
-  ContactRoute: ContactRoute,
   EventsRoute: EventsRoute,
   PartnersRoute: PartnersRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
-  TeamRoute: TeamRoute,
   WhatWeDoRoute: WhatWeDoRoute,
 }
 export const routeTree = rootRouteImport

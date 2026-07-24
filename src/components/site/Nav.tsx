@@ -5,10 +5,8 @@ import { Menu, X } from "lucide-react";
 const links = [
   { to: "/about", label: "About" },
   { to: "/what-we-do", label: "What We Do" },
-  { to: "/team", label: "Team" },
   { to: "/events", label: "Events" },
   { to: "/partners", label: "Partners" },
-  { to: "/contact", label: "Contact" },
 ] as const;
 
 export function Nav() {
@@ -33,9 +31,6 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link to="/apply" className="btn-primary btn-primary-hover text-sm">
-            Join Us
-          </Link>
         </nav>
         <button
           className="md:hidden"
@@ -58,13 +53,6 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <Link
-              to="/apply"
-              className="btn-primary btn-primary-hover mt-2 text-sm"
-              onClick={() => setOpen(false)}
-            >
-              Join Us
-            </Link>
           </div>
         </div>
       )}
