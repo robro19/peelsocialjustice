@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
-import canadaDay from "@/assets/canada-day.jpg";
-import volunteer from "@/assets/volunteer.jpg";
-import discussion from "@/assets/discussion.jpg";
+import canadaDayVolunteers from "@/assets/canada-day-volunteers.png.asset.json";
+import food4kids from "@/assets/food4kids.png.asset.json";
 
 const DESC =
   "Upcoming and past events from Peel Social Justice — donation drives, community partnerships, awareness events, and volunteer opportunities across Peel Region.";
@@ -25,20 +24,19 @@ const upcoming = [
   { date: "TBA", title: "Community Partner Volunteer Day", body: "Volunteer alongside a Mississauga nonprofit — hours provided." },
 ];
 
-const past = [
+const past: { img?: string; title: string; body: string }[] = [
   {
-    img: canadaDay,
+    img: canadaDayVolunteers.url,
     title: "Streetsville BIA Canada Day — World Map",
     body:
       "We ran the World Map sticker station and had meaningful conversations with the public about social justice, inclusion, and community in Mississauga.",
   },
   {
-    img: volunteer,
-    title: "Community Donation Drive",
-    body: "Sorted and packed donations with volunteers across the region to support families in Peel.",
+    img: food4kids.url,
+    title: "Community Donation Drive — Food4Kids Mississauga",
+    body: "Sorted and packed donations with Food4Kids Mississauga to support families and kids across Peel Region.",
   },
   {
-    img: discussion,
     title: "Open Discussion Circle",
     body: "A member-led conversation on the issues most affecting youth in Peel today.",
   },
