@@ -31,9 +31,6 @@ export function Nav() {
               {l.label}
             </Link>
           ))}
-          <Link to="/apply" className="btn-primary btn-primary-hover text-sm">
-            Join Us
-          </Link>
         </nav>
         <button
           className="md:hidden"
