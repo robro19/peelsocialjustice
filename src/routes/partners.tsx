@@ -18,7 +18,9 @@ export const Route = createFileRoute("/partners")({
 });
 
 const partners = [
+  { name: "Ward Councillor Brad Butt", body: "Helped connect us with the Streetsville BIA and has been a supportive local voice for our work in Mississauga." },
   { name: "Streetsville BIA", body: "Worked at their Canada Day event running the World Map station and community conversations." },
+  { name: "Food4Kids Mississauga", body: "Sorted and packed donations together to help feed kids and families across Peel." },
   { name: "Local food banks", body: "Donation drives and volunteer sorting days supporting families in Peel." },
   { name: "Mississauga schools", body: "In-school awareness campaigns, discussion circles, and recruitment." },
   { name: "Community leaders", body: "Guest speakers, mentors, and advisors on issues affecting Peel Region." },
@@ -51,10 +53,10 @@ function Partners() {
             collaborating on projects that make a real difference.
           </p>
           <a
-            href="mailto:partners@peelsocialjustice.org"
+            href="mailto:peelsocialjustice@gmail.com"
             className="btn-primary btn-primary-hover mt-6"
           >
-            <Mail className="h-4 w-4" /> partners@peelsocialjustice.org
+            <Mail className="h-4 w-4" /> peelsocialjustice@gmail.com
           </a>
         </div>
       </section>
