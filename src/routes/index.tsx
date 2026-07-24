@@ -51,11 +51,11 @@ function Home() {
               partnerships.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <Link to="/apply" className="btn-primary btn-primary-hover">
-                Join the movement <ArrowRight className="h-4 w-4" />
+              <Link to="/what-we-do" className="btn-primary btn-primary-hover">
+                What we do <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link to="/what-we-do" className="btn-ghost hover:bg-muted">
-                What we do
+              <Link to="/events" className="btn-ghost hover:bg-muted">
+                See our events
               </Link>
             </div>
             <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-border pt-8">
