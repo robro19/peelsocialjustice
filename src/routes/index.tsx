@@ -168,7 +168,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Discussion / CTA */}
+      {/* Discussion */}
       <section className="container-page pb-24">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
           <div className="overflow-hidden rounded-3xl border border-border">
@@ -182,21 +182,19 @@ function Home() {
             />
           </div>
           <div>
-            <span className="eyebrow">Join us</span>
+            <span className="eyebrow">Our community</span>
             <h2 className="mt-3 text-4xl md:text-5xl">
               Peel needs the next generation of voices.
             </h2>
             <p className="mt-4 text-muted-foreground">
-              Whether you want to lead campaigns, plan events, or just show up and talk about
-              what matters, there is a place for you here. Executive applications are open, and
-              general members are always welcome.
+              We host open discussion circles, plan campaigns, and partner with local
+              organizations to take real action in the community. Whether you want to lead
+              projects or simply show up and talk about what matters, there is a place for
+              you here.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <Link to="/apply" className="btn-primary btn-primary-hover">
-                Apply / Join <ArrowRight className="h-4 w-4" />
-              </Link>
-              <Link to="/contact" className="btn-ghost hover:bg-muted">
-                Contact us
+              <Link to="/what-we-do" className="btn-primary btn-primary-hover">
+                Learn what we do <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
