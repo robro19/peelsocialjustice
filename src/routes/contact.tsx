@@ -35,8 +35,8 @@ function Contact() {
               <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/10 text-primary">
                 <Mail className="h-4 w-4" />
               </span>
-              <a href="mailto:hello@peelsocialjustice.org" className="hover:text-primary">
-                hello@peelsocialjustice.org
+              <a href="mailto:peelsocialjustice@gmail.com" className="hover:text-primary">
+                peelsocialjustice@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-3">

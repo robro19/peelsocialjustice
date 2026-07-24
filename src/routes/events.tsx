@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
-import canadaDay from "@/assets/canada-day.jpg";
-import volunteer from "@/assets/volunteer.jpg";
-import discussion from "@/assets/discussion.jpg";
+import canadaDayVolunteers from "@/assets/canada-day-volunteers.png.asset.json";
+import food4kids from "@/assets/food4kids.png.asset.json";
 
 const DESC =
   "Upcoming and past events from Peel Social Justice — donation drives, community partnerships, awareness events, and volunteer opportunities across Peel Region.";
@@ -25,20 +24,19 @@ const upcoming = [
   { date: "TBA", title: "Community Partner Volunteer Day", body: "Volunteer alongside a Mississauga nonprofit — hours provided." },
 ];
 
-const past = [
+const past: { img?: string; title: string; body: string }[] = [
   {
-    img: canadaDay,
+    img: canadaDayVolunteers.url,
     title: "Streetsville BIA Canada Day — World Map",
     body:
       "We ran the World Map sticker station and had meaningful conversations with the public about social justice, inclusion, and community in Mississauga.",
   },
   {
-    img: volunteer,
-    title: "Community Donation Drive",
-    body: "Sorted and packed donations with volunteers across the region to support families in Peel.",
+    img: food4kids.url,
+    title: "Community Donation Drive — Food4Kids Mississauga",
+    body: "Sorted and packed donations with Food4Kids Mississauga to support families and kids across Peel Region.",
   },
   {
-    img: discussion,
     title: "Open Discussion Circle",
     body: "A member-led conversation on the issues most affecting youth in Peel today.",
   },
@@ -76,14 +74,20 @@ function Events() {
         <div className="mt-8 grid gap-6 md:grid-cols-3">
           {past.map((e) => (
             <article key={e.title} className="overflow-hidden rounded-2xl border border-border bg-card">
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={e.img}
-                  alt={e.title}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
+              {e.img ? (
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={e.img}
+                    alt={e.title}
+                    loading="lazy"
+                    className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <div className="flex aspect-[4/3] items-center justify-center bg-gradient-to-br from-primary/10 via-accent/10 to-secondary/15 p-6 text-center">
+                  <span className="font-display text-2xl text-primary">{e.title}</span>
+                </div>
+              )}
               <div className="p-6">
                 <h3 className="text-lg">{e.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{e.body}</p>
