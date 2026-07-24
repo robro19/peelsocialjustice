@@ -41,7 +41,7 @@ export function Footer() {
                 <Mail className="h-4 w-4" /> peelsocialjustice@gmail.com
               </a>
             </li>
-            <li><Link to="/apply" className="hover:text-primary">Apply / Join</Link></li>
+            
           </ul>
         </div>
       </div>
