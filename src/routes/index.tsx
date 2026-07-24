@@ -14,7 +14,7 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: "Peel Social Justice — Empowering Youth. Inspiring Change." },
       { name: "description", content: META_DESC },
-      { property: "og:title", content: "Peel Social Justice" },
+      { property: "og:title", content: "Peel Social Justice — Empowering Youth. Inspiring Change." },
       { property: "og:description", content: META_DESC },
       { property: "og:image", content: OG_IMAGE },
       { name: "twitter:image", content: OG_IMAGE },
