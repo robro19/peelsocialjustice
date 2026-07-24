@@ -51,10 +51,10 @@ function Partners() {
             collaborating on projects that make a real difference.
           </p>
           <a
-            href="mailto:partners@peelsocialjustice.org"
+            href="mailto:peelsocialjustice@gmail.com"
             className="btn-primary btn-primary-hover mt-6"
           >
-            <Mail className="h-4 w-4" /> partners@peelsocialjustice.org
+            <Mail className="h-4 w-4" /> peelsocialjustice@gmail.com
           </a>
         </div>
       </section>
