@@ -175,14 +175,12 @@ function Home() {
       {/* Discussion */}
       <section className="container-page pb-24">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          <div className="overflow-hidden rounded-3xl border border-border">
+          <div className="overflow-hidden rounded-3xl border border-border bg-[#1e5a54] flex items-center justify-center aspect-[4/3]">
             <img
               src={discussion}
-              alt="Youth in a discussion circle about community issues"
-              width={1200}
-              height={912}
+              alt="Peel Social Justice logo"
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-3/4 w-3/4 object-contain"
             />
           </div>
           <div>
