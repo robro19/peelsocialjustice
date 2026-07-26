@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
-import discussion from "@/assets/discussion.jpg";
+import canadaDay from "@/assets/canada-day-volunteers.png.asset.json";
 
 const DESC =
   "Peel Social Justice is a youth-led club in Mississauga exploring social justice issues and building leaders through discussion, advocacy, and community action.";
