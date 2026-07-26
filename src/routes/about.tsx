@@ -50,10 +50,8 @@ function About() {
         <aside className="md:col-span-5">
           <div className="overflow-hidden rounded-3xl border border-border">
             <img
-              src={discussion}
-              alt="Discussion circle"
-              width={1200}
-              height={912}
+              src={canadaDay.url}
+              alt="Peel Social Justice volunteers at the Streetsville BIA Canada Day event"
               loading="lazy"
               className="h-full w-full object-cover"
             />
