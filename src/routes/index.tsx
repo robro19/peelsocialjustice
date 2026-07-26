@@ -1,9 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Users, HandHeart, Megaphone, Handshake, Sparkles } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
-import hero from "@/assets/hero-youth.jpg";
-import canadaDay from "@/assets/canada-day.jpg";
-import discussion from "@/assets/discussion.jpg";
+import canadaDayVolunteers from "@/assets/canada-day-volunteers.png.asset.json";
+import food4kids from "@/assets/food4kids.png.asset.json";
+import logo from "@/assets/psj-logo.png.asset.json";
+
+const hero = canadaDayVolunteers.url;
+const canadaDay = canadaDayVolunteers.url;
+const discussion = food4kids.url;
+const logoUrl = logo.url;
 
 const META_DESC =
   "Peel Social Justice is a youth-led club in Mississauga uniting Peel Region for change through discussion, advocacy, and community action.";
