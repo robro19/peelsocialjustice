@@ -1,9 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, MessageCircle, Users, HandHeart, Megaphone, Handshake, Sparkles } from "lucide-react";
 import { SiteLayout } from "@/components/site/Layout";
-import hero from "@/assets/hero-youth.jpg";
-import canadaDay from "@/assets/canada-day.jpg";
-import discussion from "@/assets/discussion.jpg";
+import canadaDayVolunteers from "@/assets/canada-day-volunteers.png.asset.json";
+import food4kids from "@/assets/food4kids.png.asset.json";
+import logoAsset from "@/assets/psj-logo.png.asset.json";
+
+const hero = food4kids.url;
+const canadaDay = canadaDayVolunteers.url;
+const discussion = logoAsset.url;
 
 const META_DESC =
   "Peel Social Justice is a youth-led club in Mississauga uniting Peel Region for change through discussion, advocacy, and community action.";
@@ -171,14 +175,12 @@ function Home() {
       {/* Discussion */}
       <section className="container-page pb-24">
         <div className="grid gap-10 md:grid-cols-2 md:items-center">
-          <div className="overflow-hidden rounded-3xl border border-border">
+          <div className="overflow-hidden rounded-3xl border border-border bg-[#1e5a54] flex items-center justify-center aspect-[4/3]">
             <img
               src={discussion}
-              alt="Youth in a discussion circle about community issues"
-              width={1200}
-              height={912}
+              alt="Peel Social Justice logo"
               loading="lazy"
-              className="h-full w-full object-cover"
+              className="h-3/4 w-3/4 object-contain"
             />
           </div>
           <div>
