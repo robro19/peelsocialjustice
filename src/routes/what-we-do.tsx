@@ -32,7 +32,7 @@ function WhatWeDo() {
     <SiteLayout>
       <PageHeader
         eyebrow="What we do"
-        title="Discussion, service, and advocacy — in that order and all at once."
+        title="Discussion, service, and advocacy"
         lead="We combine honest conversation with real action. Every project we take on comes from something a member cared enough to raise in a meeting."
       />
       <section className="container-page py-20">
