@@ -86,8 +86,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Peel Action Hub connects youth to discuss and address social justice issues in the Peel Region." },
       { property: "og:description", content: "Peel Action Hub connects youth to discuss and address social justice issues in the Peel Region." },
       { name: "twitter:description", content: "Peel Action Hub connects youth to discuss and address social justice issues in the Peel Region." },
-      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/dlqLy9gPqzQgwLbvX4NRygtXJrF2/social-images/social-1784865198686-Green_and_Pink_Illustration_Henna_Artist_Logo.webp" },
-      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/dlqLy9gPqzQgwLbvX4NRygtXJrF2/social-images/social-1784865198686-Green_and_Pink_Illustration_Henna_Artist_Logo.webp" },
+      { property: "og:image", content: "https://peelsocialjustice.org/psj-logo.png" },
+      { name: "twitter:image", content: "https://peelsocialjustice.org/psj-logo.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

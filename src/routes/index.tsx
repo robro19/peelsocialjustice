@@ -8,7 +8,7 @@ const discussion = "/psj-logo.png";
 
 const META_DESC =
   "Peel Social Justice is a youth-led club in Mississauga uniting Peel Region for change through discussion, advocacy, and community action.";
-const OG_IMAGE = "https://id-preview--0b7fd1f5-c12a-4877-b6c4-33ec71f641fb.lovable.app/og-home.jpg";
+const OG_IMAGE = "https://peelsocialjustice.org/food4kids.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
