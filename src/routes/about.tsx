@@ -1,6 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
-import canadaDay from "@/assets/canada-day-volunteers.png.asset.json";
 
 const DESC =
   "Peel Social Justice is a youth-led club in Mississauga exploring social justice issues and building leaders through discussion, advocacy, and community action.";
@@ -50,7 +49,7 @@ function About() {
         <aside className="md:col-span-5">
           <div className="overflow-hidden rounded-3xl border border-border">
             <img
-              src={canadaDay.url}
+              src="/canada-day-volunteers.png"
               alt="Peel Social Justice volunteers at the Streetsville BIA Canada Day event"
               loading="lazy"
               className="h-full w-full object-cover"
