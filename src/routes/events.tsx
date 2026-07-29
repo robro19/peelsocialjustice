@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
-import canadaDayVolunteers from "@/assets/canada-day-volunteers.png.asset.json";
-import food4kids from "@/assets/food4kids.png.asset.json";
 
 const DESC =
   "Upcoming and past events from Peel Social Justice — donation drives, community partnerships, awareness events, and volunteer opportunities across Peel Region.";
@@ -26,13 +24,13 @@ const upcoming = [
 
 const past: { img?: string; title: string; body: string }[] = [
   {
-    img: canadaDayVolunteers.url,
+    img: "/canada-day-volunteers.png",
     title: "Streetsville BIA Canada Day — World Map",
     body:
       "We ran the World Map sticker station and had meaningful conversations with the public about social justice, inclusion, and community in Mississauga.",
   },
   {
-    img: food4kids.url,
+    img: "/food4kids.png",
     title: "Community Donation Drive — Food4Kids Mississauga",
     body: "Sorted and packed donations with Food4Kids Mississauga to support families and kids across Peel Region.",
   },
