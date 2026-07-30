@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AboutRouteImport } from './routes/about'
@@ -30,6 +31,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const PartnersRoute = PartnersRouteImport.update({
   id: '/partners',
   path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GetInvolvedRoute = GetInvolvedRouteImport.update({
+  id: '/get-involved',
+  path: '/get-involved',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EventsRoute = EventsRouteImport.update({
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/events': typeof EventsRoute
+  '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/what-we-do': typeof WhatWeDoRoute
@@ -67,6 +74,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/events': typeof EventsRoute
+  '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/what-we-do': typeof WhatWeDoRoute
@@ -77,6 +85,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/events': typeof EventsRoute
+  '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/what-we-do': typeof WhatWeDoRoute
@@ -88,6 +97,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/events'
+    | '/get-involved'
     | '/partners'
     | '/sitemap.xml'
     | '/what-we-do'
@@ -97,6 +107,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/events'
+    | '/get-involved'
     | '/partners'
     | '/sitemap.xml'
     | '/what-we-do'
@@ -106,6 +117,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/events'
+    | '/get-involved'
     | '/partners'
     | '/sitemap.xml'
     | '/what-we-do'
@@ -116,6 +128,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ApplyRoute: typeof ApplyRoute
   EventsRoute: typeof EventsRoute
+  GetInvolvedRoute: typeof GetInvolvedRoute
   PartnersRoute: typeof PartnersRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   WhatWeDoRoute: typeof WhatWeDoRoute
@@ -142,6 +155,13 @@ declare module '@tanstack/react-router' {
       path: '/partners'
       fullPath: '/partners'
       preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/get-involved': {
+      id: '/get-involved'
+      path: '/get-involved'
+      fullPath: '/get-involved'
+      preLoaderRoute: typeof GetInvolvedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/events': {
@@ -180,6 +200,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ApplyRoute: ApplyRoute,
   EventsRoute: EventsRoute,
+  GetInvolvedRoute: GetInvolvedRoute,
   PartnersRoute: PartnersRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   WhatWeDoRoute: WhatWeDoRoute,
