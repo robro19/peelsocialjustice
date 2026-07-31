@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Instagram, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
 
 const DESC =
