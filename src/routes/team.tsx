@@ -31,7 +31,6 @@ const presidents: TeamMember[] = [
     role: "Founder & Co-President",
     img: "/rohan-paladgu.jpeg",
     initials: "RP",
-    instagram: "https://instagram.com/rohnvvv",
     linkedin: "https://www.linkedin.com/in/rohan-paladgu-2773592a6",
   },
   {
