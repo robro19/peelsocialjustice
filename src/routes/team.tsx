@@ -22,7 +22,6 @@ interface TeamMember {
   role: string;
   img?: string;
   initials: string;
-  instagram?: string;
   linkedin?: string;
 }
 
