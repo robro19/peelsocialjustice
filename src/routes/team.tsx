@@ -21,20 +21,27 @@ interface TeamMember {
   role: string;
   img?: string;
   initials: string;
+  instagram?: string;
+  linkedin?: string;
 }
 
-const team: TeamMember[] = [
+const presidents: TeamMember[] = [
   {
     name: "Rohan Paladgu",
     role: "Founder & Co-President",
     img: "/rohan-paladgu.jpeg",
     initials: "RP",
+    instagram: "https://instagram.com/rohnvvv",
+    linkedin: "https://www.linkedin.com/in/rohan-paladgu-2773592a6",
   },
   {
     name: "Arhum Saleem",
     role: "Co-President",
     initials: "AS",
   },
+];
+
+const vicePresidents: TeamMember[] = [
   {
     name: "Kirat Chopra",
     role: "Vice President",
