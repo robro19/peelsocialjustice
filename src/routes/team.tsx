@@ -70,30 +70,17 @@ function MemberCard({ member }: { member: TeamMember }) {
       <div className="p-6">
         <h3 className="text-xl">{member.name}</h3>
         <p className="mt-1 text-sm font-medium text-secondary">{member.role}</p>
-        {(member.instagram || member.linkedin) && (
+        {member.linkedin && (
           <div className="mt-4 flex items-center justify-center gap-3">
-            {member.instagram && (
-              <a
-                href={member.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${member.name} on Instagram`}
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
-            )}
-            {member.linkedin && (
-              <a
-                href={member.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${member.name} on LinkedIn`}
-                className="text-muted-foreground transition-colors hover:text-primary"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-            )}
+            <a
+              href={member.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${member.name} on LinkedIn`}
+              className="text-muted-foreground transition-colors hover:text-primary"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
           </div>
         )}
       </div>
