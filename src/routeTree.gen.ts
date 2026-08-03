@@ -15,9 +15,12 @@ import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as EventsRouteImport } from './routes/events'
+import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedExecutiveApplicationRouteImport } from './routes/_authenticated/executive-application'
 
 const WhatWeDoRoute = WhatWeDoRouteImport.update({
   id: '/what-we-do',
@@ -49,6 +52,11 @@ const EventsRoute = EventsRouteImport.update({
   path: '/events',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApplyRoute = ApplyRouteImport.update({
   id: '/apply',
   path: '/apply',
@@ -59,45 +67,62 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedExecutiveApplicationRoute =
+  AuthenticatedExecutiveApplicationRouteImport.update({
+    id: '/executive-application',
+    path: '/executive-application',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
+  '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/what-we-do': typeof WhatWeDoRoute
+  '/executive-application': typeof AuthenticatedExecutiveApplicationRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
+  '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/what-we-do': typeof WhatWeDoRoute
+  '/executive-application': typeof AuthenticatedExecutiveApplicationRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
+  '/auth': typeof AuthRoute
   '/events': typeof EventsRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
   '/what-we-do': typeof WhatWeDoRoute
+  '/_authenticated/executive-application': typeof AuthenticatedExecutiveApplicationRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,40 +130,49 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/apply'
+    | '/auth'
     | '/events'
     | '/get-involved'
     | '/partners'
     | '/sitemap.xml'
     | '/team'
     | '/what-we-do'
+    | '/executive-application'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/apply'
+    | '/auth'
     | '/events'
     | '/get-involved'
     | '/partners'
     | '/sitemap.xml'
     | '/team'
     | '/what-we-do'
+    | '/executive-application'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
     | '/apply'
+    | '/auth'
     | '/events'
     | '/get-involved'
     | '/partners'
     | '/sitemap.xml'
     | '/team'
     | '/what-we-do'
+    | '/_authenticated/executive-application'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   ApplyRoute: typeof ApplyRoute
+  AuthRoute: typeof AuthRoute
   EventsRoute: typeof EventsRoute
   GetInvolvedRoute: typeof GetInvolvedRoute
   PartnersRoute: typeof PartnersRoute
@@ -191,6 +225,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EventsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/apply': {
       id: '/apply'
       path: '/apply'
@@ -205,6 +246,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -212,13 +260,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/executive-application': {
+      id: '/_authenticated/executive-application'
+      path: '/executive-application'
+      fullPath: '/executive-application'
+      preLoaderRoute: typeof AuthenticatedExecutiveApplicationRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedExecutiveApplicationRoute: typeof AuthenticatedExecutiveApplicationRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedExecutiveApplicationRoute:
+    AuthenticatedExecutiveApplicationRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   ApplyRoute: ApplyRoute,
+  AuthRoute: AuthRoute,
   EventsRoute: EventsRoute,
   GetInvolvedRoute: GetInvolvedRoute,
   PartnersRoute: PartnersRoute,
