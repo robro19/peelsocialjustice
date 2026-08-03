@@ -1,6 +1,8 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
+import { DEADLINE } from "@/lib/exec-application";
+
 
 const FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdSl-quHpD9QOpmtAIIMWwICu3IavrAHJFJqdZxldwMG5YIeg/viewform?embedded=true";
@@ -33,7 +35,22 @@ function GetInvolved() {
         lead="Fill out the club application below to become part of a youth-led community tackling local issues through discussion, volunteering, and advocacy."
       />
       <section className="container-page py-14 md:py-20">
+        <div className="mx-auto mb-12 max-w-3xl rounded-2xl border border-primary/30 bg-primary/5 p-6 md:p-8">
+          <span className="eyebrow">Executive Team</span>
+          <h2 className="mt-3 text-2xl md:text-3xl">Applying for an executive role?</h2>
+          <p className="mt-3 text-muted-foreground">
+            Executive applications run through our own portal, where you create an account and your
+            answers save automatically so you can finish later. Applications close {DEADLINE}.
+          </p>
+          <Link
+            to="/auth"
+            className="mt-5 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            Open the executive application portal <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
         <div className="mx-auto max-w-3xl">
+
           <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
             <iframe
               src={FORM_URL}
