@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      executive_applications: {
+        Row: {
+          contact_email: string
+          created_at: string
+          full_name: string
+          id: string
+          phone_number: string
+          q1: string
+          q2: string
+          q3: string
+          q4: string
+          role: string
+          role_answer: string
+          submitted: boolean
+          submitted_at: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          contact_email?: string
+          created_at?: string
+          full_name?: string
+          id?: string
+          phone_number?: string
+          q1?: string
+          q2?: string
+          q3?: string
+          q4?: string
+          role?: string
+          role_answer?: string
+          submitted?: boolean
+          submitted_at?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          contact_email?: string
+          created_at?: string
+          full_name?: string
+          id?: string
+          phone_number?: string
+          q1?: string
+          q2?: string
+          q3?: string
+          q4?: string
+          role?: string
+          role_answer?: string
+          submitted?: boolean
+          submitted_at?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
