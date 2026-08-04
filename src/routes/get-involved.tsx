@@ -39,11 +39,11 @@ function GetInvolved() {
           <span className="eyebrow">Executive Team</span>
           <h2 className="mt-3 text-2xl md:text-3xl">Applying for an executive role?</h2>
           <p className="mt-3 text-muted-foreground">
-            Executive applications run through our own portal, where you create an account and your
-            answers save automatically so you can finish later. Applications close {DEADLINE}.
+            Executive applications run through our own portal, where your answers save automatically in
+            your browser so you can finish later. Applications close {DEADLINE}.
           </p>
           <Link
-            to="/auth"
+            to="/executive-application"
             className="mt-5 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Open the executive application portal <ArrowRight className="h-4 w-4" />
