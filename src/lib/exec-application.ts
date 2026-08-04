@@ -60,3 +60,26 @@ export const EMPTY_DRAFT: ApplicationDraft = {
   q4: "",
   role_answer: "",
 };
+
+export const STORAGE_KEY = "psj-exec-application-draft-v1";
+
+export const SUBMISSION_EMAIL = "peelsocialjustice@gmail.com";
+
+export function buildSubmissionEmail(draft: ApplicationDraft): string {
+  const lines = [
+    `Full name: ${draft.full_name}`,
+    `Contact email: ${draft.contact_email}`,
+    `Phone number: ${draft.phone_number}`,
+    `Role applying for: ${draft.role}`,
+    "",
+    ...GENERAL_QUESTIONS.flatMap((question, i) => [
+      `${i + 1}. ${question}`,
+      [draft.q1, draft.q2, draft.q3, draft.q4][i] ?? "",
+      "",
+    ]),
+    `Role-specific question: ${draft.role ? (ROLE_QUESTIONS[draft.role] ?? "") : ""}`,
+    draft.role_answer,
+  ];
+  const subject = `Executive Application — ${draft.role || "Peel Social Justice"} — ${draft.full_name}`;
+  return `mailto:${SUBMISSION_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join("\n"))}`;
+}
