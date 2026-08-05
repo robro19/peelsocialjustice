@@ -25,6 +25,14 @@ interface TeamMember {
   linkedin?: string;
 }
 
+const studentSupportOfficer: TeamMember[] = [
+  {
+    name: "Joshua Anderson",
+    role: "Student Support Officer",
+    initials: "JA",
+  },
+];
+
 const presidents: TeamMember[] = [
   {
     name: "Rohan Paladgu",
@@ -99,6 +107,15 @@ function Team() {
 
       <section className="container-page py-20 md:py-28">
         <div className="space-y-16">
+          <div>
+            <h2 className="text-center text-2xl font-semibold">Student Support Officer</h2>
+            <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {studentSupportOfficer.map((member) => (
+                <MemberCard key={member.name} member={member} />
+              ))}
+            </div>
+          </div>
+
           <div>
             <h2 className="text-center text-2xl font-semibold">Presidents</h2>
             <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
