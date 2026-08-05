@@ -25,6 +25,14 @@ interface TeamMember {
   linkedin?: string;
 }
 
+const studentSupportOfficer: TeamMember[] = [
+  {
+    name: "Joshua Anderson",
+    role: "Student Support Officer",
+    initials: "JA",
+  },
+];
+
 const presidents: TeamMember[] = [
   {
     name: "Rohan Paladgu",
