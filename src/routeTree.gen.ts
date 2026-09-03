@@ -16,8 +16,11 @@ import { Route as EventsRouteImport } from './routes/events'
 import { Route as ExecutiveApplicationRouteImport } from './routes/executive-application'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as PartnersRouteImport } from './routes/partners'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as TeamRouteImport } from './routes/team'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
 import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
 
 const IndexRoute = IndexRouteImport.update({
@@ -55,6 +58,11 @@ const PartnersRoute = PartnersRouteImport.update({
   path: '/partners',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -63,6 +71,16 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const TeamRoute = TeamRouteImport.update({
   id: '/team',
   path: '/team',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WhatWeDoRoute = WhatWeDoRouteImport.update({
@@ -79,8 +97,11 @@ export interface FileRoutesByFullPath {
   '/executive-application': typeof ExecutiveApplicationRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesByTo {
@@ -91,8 +112,11 @@ export interface FileRoutesByTo {
   '/executive-application': typeof ExecutiveApplicationRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRoutesById {
@@ -104,8 +128,11 @@ export interface FileRoutesById {
   '/executive-application': typeof ExecutiveApplicationRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/team': typeof TeamRoute
+  '/terms': typeof TermsRoute
+  '/thank-you': typeof ThankYouRoute
   '/what-we-do': typeof WhatWeDoRoute
 }
 export interface FileRouteTypes {
@@ -118,8 +145,11 @@ export interface FileRouteTypes {
     | '/executive-application'
     | '/get-involved'
     | '/partners'
+    | '/privacy-policy'
     | '/sitemap.xml'
     | '/team'
+    | '/terms'
+    | '/thank-you'
     | '/what-we-do'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -130,8 +160,11 @@ export interface FileRouteTypes {
     | '/executive-application'
     | '/get-involved'
     | '/partners'
+    | '/privacy-policy'
     | '/sitemap.xml'
     | '/team'
+    | '/terms'
+    | '/thank-you'
     | '/what-we-do'
   id:
     | '__root__'
@@ -142,8 +175,11 @@ export interface FileRouteTypes {
     | '/executive-application'
     | '/get-involved'
     | '/partners'
+    | '/privacy-policy'
     | '/sitemap.xml'
     | '/team'
+    | '/terms'
+    | '/thank-you'
     | '/what-we-do'
   fileRoutesById: FileRoutesById
 }
@@ -155,8 +191,11 @@ export interface RootRouteChildren {
   ExecutiveApplicationRoute: typeof ExecutiveApplicationRoute
   GetInvolvedRoute: typeof GetInvolvedRoute
   PartnersRoute: typeof PartnersRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeamRoute: typeof TeamRoute
+  TermsRoute: typeof TermsRoute
+  ThankYouRoute: typeof ThankYouRoute
   WhatWeDoRoute: typeof WhatWeDoRoute
 }
 
@@ -211,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PartnersRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -223,6 +269,20 @@ declare module '@tanstack/react-router' {
       path: '/team'
       fullPath: '/team'
       preLoaderRoute: typeof TeamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/what-we-do': {
@@ -243,8 +303,11 @@ const rootRouteChildren: RootRouteChildren = {
   ExecutiveApplicationRoute: ExecutiveApplicationRoute,
   GetInvolvedRoute: GetInvolvedRoute,
   PartnersRoute: PartnersRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeamRoute: TeamRoute,
+  TermsRoute: TermsRoute,
+  ThankYouRoute: ThankYouRoute,
   WhatWeDoRoute: WhatWeDoRoute,
 }
 export const routeTree = rootRouteImport

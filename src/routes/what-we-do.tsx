@@ -12,6 +12,8 @@ export const Route = createFileRoute("/what-we-do")({
       { name: "description", content: DESC },
       { property: "og:title", content: "What We Do — Peel Social Justice" },
       { property: "og:description", content: DESC },
+      { property: "og:image", content: "https://peelsocialjustice.org/psj-logo.png" },
+      { name: "twitter:image", content: "https://peelsocialjustice.org/psj-logo.png" },
     ],
   }),
   component: WhatWeDo,

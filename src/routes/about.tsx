@@ -11,6 +11,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: DESC },
       { property: "og:title", content: "About Peel Social Justice" },
       { property: "og:description", content: DESC },
+      { property: "og:image", content: "https://peelsocialjustice.org/psj-logo.png" },
+      { name: "twitter:image", content: "https://peelsocialjustice.org/psj-logo.png" },
     ],
   }),
   component: About,

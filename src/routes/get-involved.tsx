@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { ArrowRight, LoaderCircle } from "lucide-react";
 import { SiteLayout, PageHeader } from "@/components/site/Layout";
 import { DEADLINE } from "@/lib/exec-application";
 
@@ -19,6 +20,8 @@ export const Route = createFileRoute("/get-involved")({
       { name: "description", content: description },
       { property: "og:title", content: "Get Involved — Peel Social Justice" },
       { property: "og:description", content: description },
+      { property: "og:image", content: "https://peelsocialjustice.org/psj-logo.png" },
+      { name: "twitter:image", content: "https://peelsocialjustice.org/psj-logo.png" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -27,6 +30,8 @@ export const Route = createFileRoute("/get-involved")({
 });
 
 function GetInvolved() {
+  const [formLoaded, setFormLoaded] = useState(false);
+
   return (
     <SiteLayout>
       <PageHeader
@@ -51,12 +56,23 @@ function GetInvolved() {
         </div>
         <div className="mx-auto max-w-3xl">
 
-          <div className="overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+          <div className="relative overflow-hidden rounded-2xl border border-border/60 bg-card shadow-sm">
+            {!formLoaded && (
+              <div
+                role="status"
+                aria-live="polite"
+                className="absolute inset-0 z-10 flex min-h-[420px] items-center justify-center gap-3 bg-card text-sm text-muted-foreground"
+              >
+                <LoaderCircle className="h-5 w-5 animate-spin text-primary" />
+                Loading application form…
+              </div>
+            )}
             <iframe
               src={FORM_URL}
               title="Peel Social Justice club application form"
-              className="h-[1400px] w-full"
+              className={`h-[1400px] w-full transition-opacity ${formLoaded ? "opacity-100" : "opacity-0"}`}
               loading="lazy"
+              onLoad={() => setFormLoaded(true)}
             >
               Loading application form…
             </iframe>

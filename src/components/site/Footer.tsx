@@ -26,25 +26,23 @@ export function Footer() {
             <li><Link to="/partners" className="hover:text-primary">Partners</Link></li>
             <li><Link to="/team" className="hover:text-primary">Team</Link></li>
             <li><Link to="/get-involved" className="hover:text-primary">Get Involved</Link></li>
+            <li><Link to="/privacy-policy" className="hover:text-primary">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="hover:text-primary">Terms of Use</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="font-sans text-xs font-semibold uppercase tracking-widest text-muted-foreground">
             Connect
           </h4>
-          <ul className="mt-4 space-y-2 text-sm">
-            <li>
-              <a href="https://instagram.com" className="inline-flex items-center gap-2 hover:text-primary">
-                <Instagram className="h-4 w-4" /> @peelsocialjustice
-              </a>
-            </li>
-            <li>
-              <a href="mailto:peelsocialjustice@gmail.com" className="inline-flex items-center gap-2 hover:text-primary">
-                <Mail className="h-4 w-4" /> peelsocialjustice@gmail.com
-              </a>
-            </li>
-            
-          </ul>
+          <address className="mt-4 space-y-2 text-sm not-italic">
+            <p>Mississauga, Ontario, Canada</p>
+            <a href="https://instagram.com" className="inline-flex items-center gap-2 hover:text-primary">
+              <Instagram className="h-4 w-4" /> @peelsocialjustice
+            </a>
+            <a href="mailto:peelsocialjustice@gmail.com" className="inline-flex items-center gap-2 hover:text-primary">
+              <Mail className="h-4 w-4" /> peelsocialjustice@gmail.com
+            </a>
+          </address>
         </div>
       </div>
       <div className="border-t border-border/60">

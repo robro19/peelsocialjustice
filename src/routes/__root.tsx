@@ -10,23 +10,34 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import { Analytics } from "../components/site/Analytics";
+import { CookieBanner } from "../components/site/CookieBanner";
+import { PageLoading } from "../components/site/PageLoading";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+      <div className="max-w-lg text-center">
+        <span className="eyebrow">Peel Social Justice</span>
+        <h1 className="mt-4 text-7xl text-primary">404</h1>
+        <h2 className="mt-4 text-2xl text-foreground">That page took a wrong turn.</h2>
+        <p className="mt-3 text-muted-foreground">
+          The page you're looking for doesn't exist or may have moved. Let's get you back to
+          community action.
         </p>
-        <div className="mt-6">
+        <div className="mt-7 flex flex-wrap justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
             Go home
+          </Link>
+          <Link
+            to="/get-involved"
+            className="inline-flex items-center justify-center rounded-full border border-border px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            Get involved
           </Link>
         </div>
       </div>
@@ -102,6 +113,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   }),
   shellComponent: RootShell,
   component: RootComponent,
+  pendingComponent: PageLoading,
   notFoundComponent: NotFoundComponent,
   errorComponent: ErrorComponent,
 });
@@ -125,6 +137,8 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Analytics />
+      <CookieBanner />
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>

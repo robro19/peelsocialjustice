@@ -29,6 +29,8 @@ export const Route = createFileRoute("/executive-application")({
       { name: "description", content: description },
       { property: "og:title", content: "Executive Application Portal — Peel Social Justice" },
       { property: "og:description", content: description },
+      { property: "og:image", content: "https://peelsocialjustice.org/psj-logo.png" },
+      { name: "twitter:image", content: "https://peelsocialjustice.org/psj-logo.png" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -43,6 +45,7 @@ function ExecutiveApplication() {
   const [hydrated, setHydrated] = useState(false);
   const [lastSaved, setLastSaved] = useState<string | null>(null);
   const [message, setMessage] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
   const dirty = useRef(false);
 
   // Load any saved progress from this browser.
@@ -100,10 +103,33 @@ function ExecutiveApplication() {
     return gaps;
   }, [draft]);
 
+  const validationErrors = useMemo(() => {
+    const errors: string[] = [];
+    if (
+      draft.contact_email.trim() &&
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(draft.contact_email.trim())
+    ) {
+      errors.push("a valid contact email");
+    }
+    GENERAL_KEYS.forEach((key, i) => {
+      if (countWords(draft[key]) > WORD_LIMIT) {
+        errors.push(`general question ${i + 1} must be within ${WORD_LIMIT} words`);
+      }
+    });
+    if (countWords(draft.role_answer) > WORD_LIMIT) {
+      errors.push(`the role-specific answer must be within ${WORD_LIMIT} words`);
+    }
+    return errors;
+  }, [draft]);
+
   function submit() {
+    if (missing.length > 0 || validationErrors.length > 0) {
+      setMessage("Please fix the highlighted form issues before submitting.");
+      return;
+    }
+    setSubmitting(true);
     save(false);
     window.location.href = buildSubmissionEmail(draft);
-    setMessage("Your email app should open with your completed application ready to send.");
   }
 
   function clearProgress() {
@@ -147,6 +173,7 @@ function ExecutiveApplication() {
                   value={draft.full_name}
                   onChange={(e) => update("full_name", e.target.value)}
                   maxLength={120}
+                  required
                 />
               </div>
               <div className="space-y-2">
@@ -157,6 +184,8 @@ function ExecutiveApplication() {
                   value={draft.contact_email}
                   onChange={(e) => update("contact_email", e.target.value)}
                   maxLength={255}
+                  required
+                  aria-invalid={validationErrors.includes("a valid contact email")}
                 />
               </div>
               <div className="space-y-2">
@@ -267,12 +296,24 @@ function ExecutiveApplication() {
                 Still to complete: {missing.join(", ")}.
               </p>
             )}
+            {validationErrors.length > 0 && (
+              <div role="alert" className="mb-4 rounded-lg border border-destructive/30 bg-destructive/5 p-3 text-sm text-destructive">
+                <p className="font-medium">Please fix the following:</p>
+                <ul className="mt-1 list-inside list-disc">
+                  {validationErrors.map((error) => <li key={error}>{error}</li>)}
+                </ul>
+              </div>
+            )}
             <div className="flex flex-wrap gap-3">
               <Button variant="outline" onClick={() => save(true)}>
                 <Save className="mr-2 h-4 w-4" /> Save progress
               </Button>
-              <Button onClick={submit} disabled={missing.length > 0}>
-                <Mail className="mr-2 h-4 w-4" /> Submit by email
+              <Button
+                onClick={submit}
+                disabled={missing.length > 0 || validationErrors.length > 0 || submitting}
+              >
+                <Mail className="mr-2 h-4 w-4" />
+                {submitting ? "Opening email…" : "Submit by email"}
               </Button>
             </div>
             <p className="mt-4 text-xs text-muted-foreground">

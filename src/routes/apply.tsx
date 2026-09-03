@@ -13,6 +13,8 @@ export const Route = createFileRoute("/apply")({
       { name: "description", content: description },
       { property: "og:title", content: "Get Involved — Peel Social Justice" },
       { property: "og:description", content: description },
+      { property: "og:image", content: "https://peelsocialjustice.org/psj-logo.png" },
+      { name: "twitter:image", content: "https://peelsocialjustice.org/psj-logo.png" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
