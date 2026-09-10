@@ -40,9 +40,8 @@ function PrivacyPolicy() {
           <div>
             <h2 className="text-2xl text-foreground">Local storage and cookies</h2>
             <p className="mt-3">
-              The executive application portal uses your browser's local storage to save draft
-              progress on your device. The site also stores your cookie preference. These are not
-              used to identify you or sell your information.
+              The site stores your cookie preference in your browser. This is not used to identify
+              you or sell your information.
             </p>
           </div>
           <div>

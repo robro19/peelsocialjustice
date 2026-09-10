@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as ApplyRouteImport } from './routes/apply'
 import { Route as EventsRouteImport } from './routes/events'
-import { Route as ExecutiveApplicationRouteImport } from './routes/executive-application'
 import { Route as GetInvolvedRouteImport } from './routes/get-involved'
 import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
@@ -41,11 +40,6 @@ const ApplyRoute = ApplyRouteImport.update({
 const EventsRoute = EventsRouteImport.update({
   id: '/events',
   path: '/events',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExecutiveApplicationRoute = ExecutiveApplicationRouteImport.update({
-  id: '/executive-application',
-  path: '/executive-application',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GetInvolvedRoute = GetInvolvedRouteImport.update({
@@ -94,7 +88,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/events': typeof EventsRoute
-  '/executive-application': typeof ExecutiveApplicationRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -109,7 +102,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/events': typeof EventsRoute
-  '/executive-application': typeof ExecutiveApplicationRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -125,7 +117,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/apply': typeof ApplyRoute
   '/events': typeof EventsRoute
-  '/executive-application': typeof ExecutiveApplicationRoute
   '/get-involved': typeof GetInvolvedRoute
   '/partners': typeof PartnersRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
@@ -142,7 +133,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/events'
-    | '/executive-application'
     | '/get-involved'
     | '/partners'
     | '/privacy-policy'
@@ -157,7 +147,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/events'
-    | '/executive-application'
     | '/get-involved'
     | '/partners'
     | '/privacy-policy'
@@ -172,7 +161,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/apply'
     | '/events'
-    | '/executive-application'
     | '/get-involved'
     | '/partners'
     | '/privacy-policy'
@@ -188,7 +176,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   ApplyRoute: typeof ApplyRoute
   EventsRoute: typeof EventsRoute
-  ExecutiveApplicationRoute: typeof ExecutiveApplicationRoute
   GetInvolvedRoute: typeof GetInvolvedRoute
   PartnersRoute: typeof PartnersRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
@@ -227,13 +214,6 @@ declare module '@tanstack/react-router' {
       path: '/events'
       fullPath: '/events'
       preLoaderRoute: typeof EventsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/executive-application': {
-      id: '/executive-application'
-      path: '/executive-application'
-      fullPath: '/executive-application'
-      preLoaderRoute: typeof ExecutiveApplicationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/get-involved': {
@@ -300,7 +280,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   ApplyRoute: ApplyRoute,
   EventsRoute: EventsRoute,
-  ExecutiveApplicationRoute: ExecutiveApplicationRoute,
   GetInvolvedRoute: GetInvolvedRoute,
   PartnersRoute: PartnersRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,

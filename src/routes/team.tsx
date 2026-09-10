@@ -138,10 +138,10 @@ function Team() {
         </div>
 
         <div className="mt-16 rounded-3xl border border-border bg-muted/50 p-8 text-center md:p-12">
-          <h2 className="text-2xl md:text-3xl">Want to join the team?</h2>
+          <h2 className="text-2xl md:text-3xl">Want to get involved?</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             We're always looking for motivated youth who want to make a difference in Peel Region.
-            Executive applications open throughout the year.
+            Find out how you can get involved with the community.
           </p>
           <a
             href="https://linktr.ee/peelsocialjustice"
